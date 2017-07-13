@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  	<style type="text/css">
+  		body {
+  			background-image: url("https://s-media-cache-ak0.pinimg.com/originals/e7/dc/aa/e7dcaa5680915af54485af4386f38207.jpg");
+  			background-repeat: no-repeat;
+  			background-size: 100%;
+  		}
+		.container1 {
+		  	width: 100%;
+		}
+		.header {
+		  	width: 100%;
+		  	height: 400px;
+		  	color: white;
+		}
+
+		h1 {
+		  	font-size: 45px;
+		  	padding: 50px 30px 10px 40px;
+		}
+		h1 strong{
+			font-size: 100px;
+		}
+		.searchBox {
+			float: right;
+			padding-top: 135px;
+		}
+		.searchBox, button {
+			margin: 3px;
+		}
+		.sidenav {
+		    height: 100%;
+		    width: 0;
+		    position: fixed;
+		    z-index: 1;
+		    top: 0;
+		    left: 0;
+		    background-color: white;
+		    overflow-x: hidden;
+		    transition: 0.5s;
+		    padding-top: 60px;
+		}
+
+		.sidenav a {
+		    padding: 8px 8px 8px 32px;
+		    text-decoration: none;
+		    font-size: 25px;
+		    color: #f4511e;
+		    display: block;
+		    transition: 0.3s;
+		}
+
+		.sidenav a:hover, .offcanvas a:focus{
+		    color: #BDC3C7;
+		}
+
+		.sidenav .closebtn {
+		    position: absolute;
+		    top: 0;
+		    right: 25px;
+		    font-size: 36px;
+		    margin-left: 50px;
+		}
+
+		#main {
+			float: left;
+		    transition: margin-left .5s;
+		    padding: 120px 30px 0 40px;
+		}
+
+		@media screen and (max-height: 450px) {
+		  .sidenav {padding-top: 15px;}
+		  .sidenav a {font-size: 18px;}
+		}
+
+		.section {
+		  	padding-left: 25px;
+		}
+		#aboutMe {
+			color: white;
+			padding-left: 40px;
+		}
+		#aboutMe p {
+			font-size: 25px;
+		}
+		#myWork {
+			color: white;
+			padding-left: 40px;
+		}
+		.thumbnail {
+		  	width: 400px;
+		  	height: 300px;
+		  	margin: auto;
+		  	padding: 20px;
+		  	border: 1px solid #f4511e;
+		}
+		#contact {
+		 	height: 350px;
+		 	color: white;
+		 	padding-left: 40px;
+		}
+		i {
+			padding: 5px;
+		}
+		#map {
+			width: 700px;
+			height: 350px;
+			margin-right: 20px;
+			float: right;
+			border: 1px solid white;
+		}
+		#footer {
+		  	width: 100%;
+		  	height: 100px;
+		  	padding: 10px;
+		  	
+		}
+		.end {
+		  	font-size: 36px;
+		  	color: white;
+		  	float: left;
+		  	padding: 10px;
+		  
+		}
+		.socialMedia {
+		  	float: right;
+		  	margin: auto;
+		  	padding: 10px;
+		}
+
+	</style>
+</head>
+<body>
+	<div class="container1">  
+<div class="header">
+    <h1><strong>Simplicity</strong>&nbsp; &nbsp; as ultimate &nbsp; &nbsp;<strong>solution!</strong></h1>
+
+    <div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><strong>&times;</strong></a>
+      <a href="#aboutMe"><strong>About me</strong></a>
+      <a href="#myWork"><strong>My work</strong></a>
+      <a href="#contact"><strong>Contact</strong></a>
+</div>
+    <div id="main">
+    <span style="font-size:50px;cursor:pointer" onclick="openNav()">&#9776; open</span>
+  </div>
+  <div class="searchBox">
+  <form class="navbar-form navbar-left">
+      <div class="form-group">
+        <i class="fa fa-search" style="font-size:24px"></i>
+		<input type="text" class="form-control" placeholder="Search">
+      </div>
+      <button type="submit" class="btn btn-default">Search</button>
+    </form>
+  </div>
+</div><hr>
+<div class= "section" id="aboutMe">
+  <h2><strong>About me...</strong></h2><br>
+  <p>Hello! My name is Some Some, and I am a User Frendly Interface Developer. I create simple, but powerfull websites.</p>
+</div><hr>
+<div class= "section" id="myWork">
+  <h2><strong>My work:</strong></h2><br><br>
+  <div class="row">
+    <div class="col-xs-4">
+      <div class="thumbnail">
+        <a href="http://kreativepool.com/images/stock-footage-web-development-text-animation.jpg" target="_blank">
+          <img src="http://kreativepool.com/images/stock-footage-web-development-text-animation.jpg" alt="" style="width:100%">
+          <div class="caption">
+            <p>Lorem ipsum donec id elit non mi porta gravida at eget metus.</p>
+          </div>
+        </a>
+      </div><br><br>
+    </div>
+    <div class="col-xs-4">
+      <div class="thumbnail">
+        <a href="http://kreativepool.com/images/stock-footage-web-development-text-animation.jpg" target="_blank">
+          <img src="http://kreativepool.com/images/stock-footage-web-development-text-animation.jpg" alt="" style="width:100%">
+          <div class="caption">
+            <p>Lorem ipsum donec id elit non mi porta gravida at eget metus.</p>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="col-xs-4">
+      <div class="thumbnail">
+        <a href="http://kreativepool.com/images/stock-footage-web-development-text-animation.jpg" target="_blank">
+          <img src="http://kreativepool.com/images/stock-footage-web-development-text-animation.jpg" alt="" style="width:100%">
+          <div class="caption">
+            <p>Lorem ipsum donec id elit non mi porta gravida at eget metus.</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-4">
+      <div class="thumbnail">
+        <a href="http://kreativepool.com/images/stock-footage-web-development-text-animation.jpg" target="_blank">
+          <img src="http://kreativepool.com/images/stock-footage-web-development-text-animation.jpg" alt="" style="width:100%">
+          <div class="caption">
+            <p>Lorem ipsum donec id elit non mi porta gravida at eget metus.</p>
+          </div>
+        </a>
+      </div><br><br>
+    </div>
+    <div class="col-xs-4">
+      <div class="thumbnail">
+        <a href="http://kreativepool.com/images/stock-footage-web-development-text-animation.jpg" target="_blank">
+          <img src="http://kreativepool.com/images/stock-footage-web-development-text-animation.jpg" alt="" style="width:100%">
+          <div class="caption">
+            <p>Lorem ipsum donec id elit non mi porta gravida at eget metus.</p>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="col-xs-4">
+      <div class="thumbnail">
+        <a href="http://kreativepool.com/images/stock-footage-web-development-text-animation.jpg" target="_blank">
+          <img src="http://kreativepool.com/images/stock-footage-web-development-text-animation.jpg" alt="" style="width:100%">
+          <div class="caption">
+            <p>Lorem ipsum donec id elit non mi porta gravida at eget metus.</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-4">
+      <div class="thumbnail">
+        <a href="http://kreativepool.com/images/stock-footage-web-development-text-animation.jpg" target="_blank">
+          <img src="http://kreativepool.com/images/stock-footage-web-development-text-animation.jpg" alt="" style="width:100%">
+          <div class="caption">
+            <p>Lorem ipsum donec id elit non mi porta gravida at eget metus.</p>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="col-xs-4">
+      <div class="thumbnail">
+        <a href="http://kreativepool.com/images/stock-footage-web-development-text-animation.jpg" target="_blank">
+          <img src="http://kreativepool.com/images/stock-footage-web-development-text-animation.jpg" alt="" style="width:100%">
+          <div class="caption">
+            <p>Lorem ipsum donec id elit non mi porta gravida at eget metus.</p>
+          </div>
+        </a>
+      </div><br>
+    </div>
+    <div class="col-xs-4">
+      <div class="thumbnail">
+        <a href="http://kreativepool.com/images/stock-footage-web-development-text-animation.jpg" target="_blank">
+          <img src="http://kreativepool.com/images/stock-footage-web-development-text-animation.jpg" alt="" style="width:100%">
+          <div class="caption">
+            <p>Lorem ipsum donec id elit non mi porta gravida at eget metus.</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div><hr>
+<div class= "section" id="contact">
+  <div id="map"></div>
+
+  <h2><strong>Contact:</strong></h2><br>
+  <i class="fa fa-map-marker" style="font-size:24px"><p>    Street.Name 11000 Belgrade</p></i><br>
+  <i class="fa fa-phone" style="font-size:24px"><p>    Phone.Number</p></i><br>
+  <i class="fa fa-envelope-o" style="font-size:24px"><p>     some.email@gmail.com</p></i><br>
+  <i class="fa fa-map-marker" style="font-size:24px"><p>     </p></i>
+</div><hr>
+<div id="footer">
+  <div class="end">
+    <p><span class="glyphicon glyphicon-copyright-mark"></span> fdt</p>
+  </div>
+ <div class="socialMedia">
+   <a href="https://www.facebook.com/" target="_blank"><i class="fa fa-facebook-square" style="font-size:36px; color: white;"></i></a>
+   <a href="https://www.linkedin.com/uas/login" target="_blank"><i class="fa fa-linkedin-square" style="font-size:36px; color: white;"></i></a>
+   <a href="https://twitter.com/?lang=en" target="_blank"><i class="fa fa-twitter-square" style="font-size:36px; color: white;"></i></a>
+   <a href="https://www.instagram.com/?hl=en" target="_blank"><i class="fa fa-instagram" style="font-size:36px; color: white;"></i></a>
+  </div>
+</div>
+</div>
+
+<script type="text/javascript">
+	function openNav() {
+    document.getElementById("mySidenav").style.width = "250px";
+    document.getElementById("main").style.marginLeft = "250px";
+}
+
+function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+    document.getElementById("main").style.marginLeft= "0";
+}
+
+function myMap() {
+  var mapCanvas = document.getElementById("map");
+  var mapOptions = {
+    center: new google.maps.LatLng(44.7866, 20.4489),
+    zoom: 7,
+    panControl: true,
+    zoomControl: true,
+    mapTypeControl: true,
+    scaleControl: true,
+    streetViewControl: true,
+    overviewMapControl: true,
+    rotateControl: true   
+  };
+  var map = new google.maps.Map(mapCanvas, mapOptions);
+}
+
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?AIzaSyAX7shiCy0vFhhs7mKxbya3PBr0eYOnBbI&callback=myMap"></script>
+
+</body>
+</html>
