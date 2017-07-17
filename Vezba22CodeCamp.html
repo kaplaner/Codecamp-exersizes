@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+	<style type="text/css">
+		
+		body {
+			background-image: url("http://st.depositphotos.com/2850099/4223/i/950/depositphotos_42230349-stock-photo-black-and-white-background-of.jpg");
+			background-position: center;
+			background-attachment: fixed;
+			background-repeat: no repeat;
+			background-size: cover;
+		}
+		header {
+			height: 150px;
+			padding-top: 30px;
+			color: #94999D;
+			font-size: 60px;
+			background-color: black;
+		}
+		button {
+			width: 400px;
+			height: 50px;
+			color: white;
+			background-color: #BDC3C7;
+			margin-left: 0px;
+			font-size: 20px;
+		}
+		.container2 {
+			width: 400px;
+			height: 250px;
+			background-color: white;
+			margin: 230px auto;
+			box-shadow: 10px 10px 5px #888888;
+
+		}
+		#words {
+			font-size: 18px;
+			font-family: Arial, Helvetica, sans-serif;
+			text-align: center;
+			color: black;
+			padding: 10px;
+		}
+		#words b {
+			float: right;
+			padding: 10px;
+		}
+		#footer {
+			width: 100%;
+			height: 100px;
+			padding: 10px;
+			  	
+		}
+		.end {
+			font-size: 36px;
+			color: #7F8488;
+			float: left;
+			padding: 10px;
+		}
+		
+	</style>
+</head>
+<body>
+	<header class="text-center">Big words</header>
+	<div class="container2">
+		<div class="row">
+			<div class="col-xs-12">
+				<button type="button" class="btn" onclick="
+				  document.getElementById('words').innerHTML = nextQuote();
+				">Just Click!</button>
+
+				<div id="words">&nbsp;</div>
+			</div>
+		</div>
+	</div><hr>
+
+	<div id="footer">
+	  <div class="end">
+	    <p><span class="glyphicon glyphicon-copyright-mark"></span> fdt</p>
+	  </div>
+	</div>
+	<script type="text/javascript">
+		var nextQuote = (function() {
+		  var bigWords = [
+				"&#10077; There is a natural aristocracy among men. The grounds of this are virtue and talents.<br><br><cite><b>      - Thomas Jefferson</b></cite>",
+				"&#10077; Be not afraid of going slowly, be afraid only of standing still.</q><br><br><cite><b>      - Chinese proverb</b></cite>",
+				"&#10077; Learn from yesterday, live for today, hope for tomorrow.<br><br><cite><b>       - Unknown source</b></cite> ",
+				"&#10077; Do not confine your children to your own learning, for they were born in another time.<br><br><cite><b>       - Chinese proverb</b></cite> ",
+				"&#10077; One day your life will flash before your eyes. Make sure its worth watching.<br><br><cite><b>       - Unknown source</b></cite> ",
+				"&#10077; In three words I can sum up everything I've learned about life. It goes on.<br><br><cite><b>       - Robert Frost</b></cite> ",
+				"&#10077; And in the end, it's not the years in your life that count. It's the life in your years.<br><br><cite><b>       - Abraham Lincoln</b></cite> ",
+				"&#10077; Life can only be understood backwards, but it must be lived forward.<br><br><cite><b>       - Soren Kierkegaard</b></cite> ",
+				"&#10077; Teachers open the door but you must walk through it yourself.<br><br><cite><b>       - Chinese proverb</b></cite> ",
+				"&#10077; I have not failed. I've just found 10,000 ways that won't work.<br><br><cite><b>       - Thomas Alva Edison</b></cite>",
+				"&#10077; Either write something worth reading or do something worth writing.<br><br><cite><b>       - Benjamin Franklin</b></cite> ",
+				"&#10077; We may have all come on different ships, but we're in the same boat now.<br><br><cite><b>      - Martin Luther King Jr.</b></cite>"];
+		  var count = -1;
+		  return function() {
+		    return bigWords[++count % bigWords.length];
+		  }
+		}());
+
+	</script>
+
+</body>
+</html>
