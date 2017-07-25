@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Twitch Streamers</title>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<!-- jQuery library -->
+	<script src="http://code.jquery.com/jquery-2.2.4.min.js"
+	  	integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+	  	crossorigin="anonymous"></script>
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	
+	<style type="text/css">
+		body {
+			background-color: #F39C12;
+		}
+		.header {
+			width: 100%;
+			min-height: 250px;
+			font-size: 75px;
+			font-weight: bold;
+			color: #F39C12;
+			background-color: white;
+			margin-bottom: 10px;
+		}
+		.header, p {
+			text-align: center;
+		}
+		.header:hover {
+			color: white;
+			background-color: #A6ACAF;
+		}
+		button {
+			margin-left: -15px;
+			height: 45px;
+			font-size: 25px;
+			color: #F39C12;
+			background-color: white;
+		}
+		button:hover {
+			color: #A6ACAF;
+		}
+		#display {
+			width: 100%;
+			height: 500px;
+			color: white;
+			padding-top: 15px;
+			padding-left: 20px;
+			display: block;
+			text-align: left;
+		}
+		.logo {
+			width: 55px;
+			height: 55px;
+		}
+		a {
+			font-size: 25px;
+			color: white;
+		}
+		a:hover {
+			color: #A6ACAF;
+			text-decoration: none;
+		}
+		#streaming {
+			font-size: 18px;
+			color: white;
+		}
+		#streaming:hover {
+			color: #A6ACAF;
+		}
+		.endFooter {
+			width: 100%;
+			height: 70px;
+			font-size: 25px;
+			color: #F39C12;
+			background-color: white;
+			position: fixed;
+  			right: 0;
+  			bottom: 0;
+  			left: 0;
+  			padding: 15px;
+		}
+		.endFooter:hover {
+			color: white;
+			background-color: #A6ACAF;
+		}
+	</style>
+
+</head>
+<body>
+	<div class="header"><p>Twitch Streamers</p>
+		<button type="button" class="selector active" id="all">All</button>
+		<button type="button" class="selector" id="online">Online</button>
+		<button type="button" class="selector" id="offline">Offline</button>
+	</div>
+
+	<div id="display">
+		<div class="row offline">
+			<div class="col-xs-2" id="icon">
+				<img src="http://www.peachpit.com/content/images/chap4_9780321929662/elementLinks/04fig14.jpg" class="logo">
+			</div>
+			<div class="col-xs-10">
+				<a href="https://www.twitch.tv/test_channel">TestChannel</a>
+			</div>
+			<div class="col-xs-10" id="streaming">Offline</div>
+		</div><hr>
+		<div class="row offline">
+			<div class="col-xs-2" id="icon">
+				<img src="https://static-cdn.jtvnw.net/jtv_user_pictures/robotcaleb-profile_image-9422645f2f0f093c-300x300.png" class="logo">
+			</div>
+			<div class="col-xs-10">
+				<a href="https://www.twitch.tv/robotcaleb">RobotCaleb</a>
+			</div>
+			<div class="col-xs-10" id="streaming">Offline</div>
+		</div><hr>
+		<div class="row offline">
+			<div class="col-xs-2" id="icon">
+				<img src="https://yt3.ggpht.com/-bWUaHwGz7To/AAAAAAAAAAI/AAAAAAAAAAA/xEUD6X5iT2Y/s900-c-k-no-mo-rj-c0xffffff/photo.jpg" class="logo">
+			</div>
+			<div class="col-xs-10">
+				<a href="https://www.twitch.tv/freecodecamp">FreeCodeCamp</a>
+			</div>
+			<div class="col-xs-10" id="streaming">Offline</div>
+		</div><hr>
+		<div class="row online">
+			<div class="col-xs-2" id="icon">
+				<img src="https://static-cdn.jtvnw.net/jtv_user_pictures/esl_sc2-profile_image-d6db9488cec97125-300x300.jpeg" class="logo">
+			</div>
+			<div class="col-xs-10">
+				<a href="https://www.twitch.tv/esl_sc2">EslSc2</a>
+			</div>
+			<div class="col-xs-10" id="streaming">StarCraft II</div>
+		</div><hr>
+	</div>
+
+	<div class="endFooter">
+		<p class="copyright big">&copy; fdt  -All Rights Reserved</p>
+	</div>
+	
+
+	<script type="text/javascript">
+		
+		var channels = ["TestChannel","RobotCalab", "FreeCodeCamp", "EslSc2"];
+
+		function getChannelInfo() {
+		  	channels.forEach(function(channel) {
+		    	function makeURL(type, name) {
+		      		return 'https://wind-bow.gomix.me/twitch-api/' + type + '/' + name + '?callback=?';
+		    	};
+		    
+		    $.getJSON(makeURL("streams", channel), function(data) {
+		      	var status;
+		      	if (data.stream === null) {
+		        status = "offline";
+		      	} else if (data.stream === undefined) {
+		        status = "offline";
+		      	} else {
+		        status = "online";
+		      	};
+		    
+		    $.getJSON(makeURL("channels", channel), function(data) {
+		        var logo = data.logo != null ? data.logo : "http://www.peachpit.com/content/images/chap4_9780321929662/elementLinks/04fig14.jpg",
+		          	name = data.display_name != null ? data.display_name : channel,
+		          
+		          	html = '<div class="row ' + status + '"><div class="col-xs-2" id="icon"><img src="' + 
+		          	logo + '" class="logo"></div><div class="col-xs-10"><a href="' + 
+		          	data.url + name + '</a></div><div class="col-xs-10" id="streaming"><hr>'+ 
+		          	description + '</div></div>';
+		        	
+		        	if(status === "online") { 
+		        		$("#display").append(html);
+		        	}
+		      	});
+		    });
+		  });
+		};
+
+		$(document).ready(function() {
+			getChannelInfo();
+			$(".selector").click(function() {
+			    $(".selector").removeClass("active");
+			    $(this).addClass("active");
+			    var status = $(this).attr('id');
+			    if (status === "all") {
+			      $(".online, .offline").removeClass("hidden");
+			    } else if (status === "online") {
+			      $(".online").removeClass("hidden");
+			      $(".offline").addClass("hidden");
+			    } else {
+			      $(".offline").removeClass("hidden");
+			      $(".online").addClass("hidden");
+			    }
+			})
+		});
+
+		
+	</script>
+</body>
+</html>
