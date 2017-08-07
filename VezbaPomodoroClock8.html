@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Pomodoro Clock 8</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<!-- jQuery library -->
+	<script src="http://code.jquery.com/jquery-2.2.4.min.js"
+	  	integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+	  	crossorigin="anonymous"></script>
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+	<style type="text/css">
+		body {
+			background-color: black;
+		}
+		header {
+			width: 100%;
+			min-height: 200px;
+			font-size: 75px;
+			font-weight: 300;
+			color: white;
+			text-align: center;
+			padding-top: 45px;
+			background: #757675; /* For browsers that do not support gradients */
+			background: -webkit-linear-gradient(left, #757675, #212F3C); /* For Safari 5.1 to 6.0 */
+			background: -o-linear-gradient(right, #757675, #212F3C); /* For Opera 11.1 to 12.0 */
+			background: -moz-linear-gradient(right, #757675, #212F3C); /* For Firefox 3.6 to 15 */
+			background: linear-gradient(right, #757675, #212F3C); /* Standard syntax (must be last) */
+		}
+		#countdown {
+			min-width: 400px;
+			max-width: 600px;
+			min-height: 150px;
+			font-size: 80px;
+			font-weight: 100;
+			color: white;
+			margin: 200px auto;
+			padding: 20px 20px 20px 45px;
+			border-radius: 100px;
+			background: #757675; /* For browsers that do not support gradients */
+			background: -webkit-linear-gradient(left, #757675, #212F3C); /* For Safari 5.1 to 6.0 */
+			background: -o-linear-gradient(right, #757675, #212F3C); /* For Opera 11.1 to 12.0 */
+			background: -moz-linear-gradient(right, #757675, #212F3C); /* For Firefox 3.6 to 15 */
+			background: linear-gradient(right, #757675, #212F3C); /* Standard syntax (must be last) */
+		}
+		#inputs {
+			width: 400px;
+			margin: 200px auto;
+		}
+		.btn {
+			color: white;
+			font-size: 20px; 
+			font-weight: 300;
+			background: #757675; /* For browsers that do not support gradients */
+			background: -webkit-linear-gradient(left, #757675, #212F3C); /* For Safari 5.1 to 6.0 */
+			background: -o-linear-gradient(right, #757675, #212F3C); /* For Opera 11.1 to 12.0 */
+			background: -moz-linear-gradient(right, #757675, #212F3C); /* For Firefox 3.6 to 15 */
+			background: linear-gradient(right, #757675, #212F3C); /* Standard syntax (must be last) */
+		}
+		#plus{
+			margin-top: -1300px;
+			margin-left: 300px;
+		}
+		#minus {
+			margin-top: -1305px;
+			margin-left: 1080px;
+		}
+		footer {
+			width: 100%;
+			min-height: 100px;
+			color: white;
+			font-size: 30px;
+			font-weight: 300;
+			text-align: left;
+			padding: 20px 10px 15px 20px;
+		}
+	</style>
+</head>
+<body>
+	<header>Pomodoro Clock</header>
+	
+	<div id='countdown' class="text-center">00:00</div>
+	
+	<div id="inputs" class="text-center">
+		<input type="button" value="start" id="start" class="btn" />
+		<input type="button" value="stop" id="stop" class="btn" />
+		<input type="button" value="resume" id="resume" class="btn" />
+		<input type="button" value="reset" id="reset" class="btn" />
+	</div>
+	
+	<input type="button" value="plus" id="plus" class="btn" />
+	<input type="button" value="minus" id="minus" class="btn" />
+
+	<footer class="copyright big">&copy; fdt  -All Rights Reserved</footer>
+
+	<script type="text/javascript">
+		var interval;
+		var seconds = 1500;
+	    var minutes = Math.round((seconds-30)/60);
+	    var seconds = seconds % 60;
+
+	    window.onload = function() {
+		    countdown('countdown');
+		}
+
+		   	function countdown(element) {
+		        interval = setInterval(function() {
+		            var el = document.getElementById(element);
+		            if(seconds == 0) {
+		                if(minutes == 0) {
+		                    alert(el.innerHTML = "countdown's over!");                    
+		                    clearInterval(interval);
+		                    return;
+		                } else {
+		                	minutes--;
+							seconds = 60;
+								            
+					}
+		        }
+		            if(minutes >= 0 && minutes < 10) {
+		                var minute_text = "0" + minutes + (minutes > 1 ? ' minutes' : ' minute');
+		            } else {
+		                var minute_text = minutes + (minutes > 1 ? ' minutes' : ' minute');
+		            }
+
+		            
+		            var second_text = (seconds > 0 ? 'seconds' : 'second');	
+		            	el.innerHTML = minute_text + ' ' + seconds + ' ' + second_text + ' remaining';
+		            if (seconds >= 0 && seconds < 10) {
+		            	el.innerHTML = minute_text + ' ' + "0" + seconds + ' ' + second_text + ' remaining';
+		            }
+		            if(seconds == 60) {
+						el.innerHTML = minute_text + ' ' + "00" + ' ' + second_text + ' remaining';
+					}
+					if(minutes == 0 && seconds == 60) {
+						el.innerHTML = minute_text + ' ' + "60" + ' ' + second_text + ' remaining';
+					}
+					if(minutes == 0 && seconds == 60) {
+						el.innerHTML = minute_text + ' ' + "00" + ' ' + second_text + ' remaining';
+					}
+					seconds--;
+		        }, 500);
+
+		        	
+		    }
+		
+		var reset = document.getElementById('reset');
+		
+		reset.onclick = function() {
+		    minutes = 25;
+		    seconds = 00;
+		    clearInterval(interval);
+		    interval = null;
+		}
+		
+		var start = document.getElementById('start');
+
+		start.onclick = function() {
+		    if (!interval) {
+		        countdown('countdown');
+		    }
+		}
+
+		var stop = document.getElementById('stop');
+
+		stop.onclick =  function() {
+			clearInterval(interval);
+		}
+		
+		var resume = document.getElementById('resume');
+		
+		resume.onclick = function() {
+  			if (interval) {
+  				clearInterval(interval);
+    			countdown('countdown'); 
+  			}
+		}
+
+		var plus = document.getElementById('plus');
+		
+		plus.onclick = function() {
+			minutes++;
+		}
+		var minus = document.getElementById('minus');
+		
+		minus.onclick = function() {
+			minutes--;
+		}
+	</script>
+</body>
+</html>
