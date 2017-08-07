@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="http://code.jquery.com/jquery-3.2.1.min.js"
+	  	integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+	  	crossorigin="anonymous"></script>
+	  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+	
+	<title>Tic Tac Toe</title>
+	
+	<style type="text/css">
+		
+		body {
+			background-color: #2471A3;
+		}
+		header {
+			width: 100%;
+			min-height: 200px;
+			font-size: 75px;
+			color: #2471A3;
+			background-color: white;
+			text-align: center;
+			padding-top: 45px;
+			text-shadow: 3px 3px #0B5345;
+		}
+		form {
+			float: left;
+			margin-left: 20px;
+		}
+		.table1 {
+			margin: 40px 40px auto;
+
+		}
+		.table3 {
+			float: left;
+	   		margin: 35px 20px 20px 40px;
+
+		}
+	    .btn {
+	    	width: 100px;
+	    	height: 100px;
+	    	font-size: 45px;
+	    	font-weight: bold;
+	    	color: #2471A3;
+	    	padding: -5px;
+	    	border: 2px solid #2471A3;
+	    	background: #FDFEFE; /* For browsers that do not support gradients */
+			background: -webkit-linear-gradient(left, #FDFEFE, #F7F9F9); /* For Safari 5.1 to 6.0 */
+			background: -o-linear-gradient(right, #FDFEFE, #F7F9F9); /* For Opera 11.1 to 12.0 */
+			background: -moz-linear-gradient(right, #FDFEFE, #F7F9F9); /* For Firefox 3.6 to 15 */
+			background: linear-gradient(right, #FDFEFE, #F7F9F9); /* Standard syntax (must be last) */
+			box-shadow: 10px 10px 5px #FDFEFE;
+		}
+	   .text {
+	    	width: 70px;
+	    	height: 25px; 
+	    	font-size: 22px;
+	    	font-weight: 500;
+	    	padding: 2px;
+	    	color: #2471A3;
+	    	border: 2px solid #2471A3;
+	    	background: #FDFEFE; /* For browsers that do not support gradients */
+			background: -webkit-linear-gradient(left, #FDFEFE, #F7F9F9); /* For Safari 5.1 to 6.0 */
+			background: -o-linear-gradient(right, #FDFEFE, #F7F9F9); /* For Opera 11.1 to 12.0 */
+			background: -moz-linear-gradient(right, #FDFEFE, #F7F9F9); /* For Firefox 3.6 to 15 */
+			background: linear-gradient(right, #FDFEFE, #F7F9F9); /* Standard syntax (must be last) */
+			box-shadow: 5px 5px 5px #FDFEFE;
+	    }
+	   	.reset {
+	   		width: 120px;
+	   		height: 70px;
+	   		font-size: 18px;
+	   		font-weight: 500;
+	   		float: left;
+	   		display: block;
+	   		margin: 42px 20px 20px 20px;
+	   		border: 2px solid #2471A3;
+	   		color: #2471A3;
+	   		background: #FDFEFE; /* For browsers that do not support gradients */
+			background: -webkit-linear-gradient(left, #FDFEFE, #F7F9F9); /* For Safari 5.1 to 6.0 */
+			background: -o-linear-gradient(right, #FDFEFE, #F7F9F9); /* For Opera 11.1 to 12.0 */
+			background: -moz-linear-gradient(right, #FDFEFE, #F7F9F9); /* For Firefox 3.6 to 15 */
+			background: linear-gradient(right, #FDFEFE, #F7F9F9); /* Standard syntax (must be last) */
+			box-shadow: 8px 8px 5px #FDFEFE;
+	   	}
+	    p {
+	    	font-size: 25px;
+	    	color: white;
+	    }
+	    footer {
+	    	float: left;
+			width: 100%;
+			min-height: 100px;
+			color: white;
+			font-size: 30px;
+			text-align: left;
+			text-shadow: 1px 1px white;
+			margin-top: 200px;
+			padding: 40px 10px 15px 20px;
+		}
+	</style>
+
+</head>
+<body>
+	<header>Tic Tac Toe game </header>
+	
+	<form class= "table1" name= "tableForm">
+		<input class="btn" type="button" name="b1" value="" onclick= "changeBox(this)">
+		<input class="btn" type="button" name="b2" value="" onclick= "changeBox(this)">
+		<input class="btn" type="button" name="b3" value="" onclick= "changeBox(this)"><br>
+		<input class="btn" type="button" name="b4" value="" onclick= "changeBox(this)">
+		<input class="btn" type="button" name="b5" value="" onclick= "changeBox(this)">
+		<input class="btn" type="button" name="b6" value="" onclick= "changeBox(this)"><br>
+		<input class="btn" type="button" name="b7" value="" onclick= "changeBox(this)">
+		<input class="btn" type="button" name="b8" value="" onclick= "changeBox(this)">
+		<input class="btn" type="button" name="b9" value="" onclick= "changeBox(this)"><br><br>
+	</form>
+	<form class="table2" name="tableForm2">
+		<input class="reset" type="reset" value="Play Again" onclick="clearBoard()"></br>
+		<input class="reset" type="reset" value="Reset score" onclick="eraseFunc()"></br></br>
+	</form>
+	<form class="table3" name="tableForm3">
+		<p>Current Move:</p>
+		<input class="text" type="text" name="currentmove" value="X" size= "2"><br><br>
+		<p>Score X:</p>
+		<input class="text" type="text" name="xscore" value="0" size= "3"><br><br>
+		<p>Score O:</p>
+		<input class="text" type="text" name="oscore" value="0" size= "3"><br><br>
+		<p>Draw:   </p>
+		<input class="text" type="text" name="drawgame" value="0" size= "3"><br><br>
+	</form>
+
+	<footer class="copyright big">&copy; fdt  -All Rights Reserved</footer>
+	
+	<script type="text/javascript">
+	// Definisane Globalne varijable
+		var cell;
+		var mark = "X";
+		var numMoves = 0;
+		var xCount = 0;
+		var oCount = 0;
+		var drawCount = 0;
+		var b1;
+		var b2;
+		var b3;
+		var b4;
+		var b5;
+		var b6;
+		var b7;
+		var b8;
+		var b9;
+		var currentmove = "X";
+		//Funkcija koja nam govori da ukoliko je polje slobodno, mozemo upisati neki znak, dodeliti mu vrednost,
+		//u suprotnom ce nam dati obavestenje daje polje okupirano tj., da vec ima neku vrednost.
+		function changeBox(cell){
+		    if (cell.value == "") {
+		        cell.value = mark;
+		        numMoves ++;
+		        document.tableForm3.currentmove.value = currentmove;
+		    }
+		    else {
+		      alert("This square is occupied");
+		    }
+		    //Uslov/f-ja koja proverava da li postoji pobednicka kombinacija za X ili O 
+		    if (checkWinCombo()){
+		        alert ("Player " + cell.value + " wins! " )
+		        if (mark == "X") {
+		            xCount ++;
+		        	document.tableForm3.xscore.value = xCount;
+		        }
+		        else {
+		            oCount ++;
+		            document.tableForm3.oscore.value = oCount;
+		        }
+		        clearBoard();
+		        return;    
+		    }
+		    //Uslov/f-ja koja regulse ishod u slucaju da je nereseno
+		    if (numMoves == 9) {
+		        alert("The game is draw!");
+		        drawCount ++;
+		        document.tableForm3.drawgame.value = drawCount;
+		        clearBoard();
+		        return;
+		    }
+		    else {
+		        changeMark();
+		    }
+		}
+		//Funkcija koja menja znak pri potezu, iz X -> O i O -> X
+		function changeMark(){
+		    if (mark == "X") {
+		        mark = "O";
+		        currentmove = "O"
+		    }
+		    else {
+		      	mark = "X";
+		    	currentmove = "X"
+		    }
+		}
+		//Funkcija koja proverava ishod igre i povezana je sa uslovom koji se nalazi iznad
+		function checkWinCombo(){
+		    with (document.tableForm) {
+		        if ((b1.value== "X") && (b2.value=="X") && (b3.value== "X")) 
+		            return true;   
+		        if ((b4.value== "X") && (b5.value=="X") && (b6.value== "X")) 
+		            return true;
+		        if ((b7.value== "X") && (b8.value=="X") && (b9.value== "X")) 
+		            return true;
+		        if ((b1.value== "X") && (b4.value=="X") && (b7.value== "X")) 
+		            return true;
+		        if ((b2.value== "X") && (b5.value=="X") && (b8.value== "X")) 
+		            return true;   
+		        if ((b3.value== "X") && (b6.value=="X") && (b9.value== "X")) 
+		            return true;   
+		        if ((b1.value== "X") && (b5.value=="X") && (b9.value== "X")) 
+		            return true;
+		       	if ((b3.value== "X") && (b5.value=="X") && (b7.value== "X"))
+		            return true;
+		       	if ((b1.value== "O") && (b2.value=="O") && (b3.value== "O")) 
+		            return true;
+		        if ((b4.value== "O") && (b5.value=="O") && (b6.value== "O")) 
+		            return true;
+		        if ((b7.value== "O") && (b8.value=="O") && (b9.value== "O")) 
+		            return true;   
+		        if ((b1.value== "O") && (b4.value=="O") && (b7.value== "O")) 
+		            return true;   
+		        if ((b2.value== "O") && (b5.value=="O") && (b8.value== "O")) 
+		            return true;
+		        if ((b3.value== "O") && (b6.value=="O") && (b9.value== "O")) 
+		            return true;
+		        if ((b1.value== "O") && (b5.value=="O") && (b9.value== "O")) 
+		            return true;
+		        if ((b3.value== "O") && (b5.value=="O") && (b7.value== "O")) 
+		            return true;
+		    }
+		}
+		//Funkcija koja vraca tablu u pocetnu poziciju, sprema novu igru
+		function clearBoard(){
+		    document.tableForm.b1.value= "";
+		    document.tableForm.b2.value= "";
+		    document.tableForm.b3.value= "";
+		    document.tableForm.b4.value= "";
+		    document.tableForm.b5.value= "";
+		    document.tableForm.b6.value= "";
+		    document.tableForm.b7.value= "";
+		    document.tableForm.b8.value= "";
+		    document.tableForm.b9.value= "";
+		    mark = "X";
+		    numMoves = 0;
+		}
+		//Funkcija koja resetuje celu igru, i tablu i skor igraca, na pocetne parametre
+		function eraseFunc() {
+		    xCount = 0;
+		    oCount = 0;
+		    drawCount = 0;
+		    alert("All square! Have fun!");
+		    document.tableForm2
+		}
+	</script>
+</body>
+</html>
